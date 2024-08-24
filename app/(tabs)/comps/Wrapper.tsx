@@ -5,35 +5,35 @@ import {
   Image,
   StatusBar,
   SafeAreaView,
+  ScrollView,
 } from "react-native";
-import { AppButton, Text, TextComponent, View } from "@/comps";
+import { Text, View } from "@/comps";
 import { AppStyles, AppUtils } from "@/utils";
-import { Ionicons } from "@expo/vector-icons";
 
 type IProps = {
   children: ReactNode;
   style?: ViewStyle;
   title: string;
   rightChild?: ReactNode;
+  hideTop?: boolean;
 };
 
 export function Wrapper(props: IProps) {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.viewContainer}>
-        <View
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            flexDirection: "row",
-            paddingVertical: 10,
-            paddingHorizontal: 20,
-          }}
-        >
-          <Text style={AppStyles.h1}>{props.title}</Text>
-          {props.rightChild}
+      <View style={{ flex: 1, height: AppUtils.sizes.height }}>
+        <View style={styles.viewContainer}>
+          {props.hideTop || (
+            <View style={styles.topBar}>
+              <Text style={AppStyles.h1}>{props.title}</Text>
+              {props.rightChild}
+            </View>
+          )}
+
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+            <View style={styles.children}>{props.children}</View>
+          </ScrollView>
         </View>
-        <View>{props.children}</View>
       </View>
     </SafeAreaView>
   );
@@ -45,19 +45,20 @@ const styles = StyleSheet.create({
     backgroundColor: AppUtils.color.bg,
     paddingTop: StatusBar.currentHeight,
   },
+  children: {
+    position: "relative",
+    height: "100%",
+  },
   viewContainer: {
     flex: 1,
-    // padding: 20,
   },
-  logoContainer: {
-    alignItems: "center",
-    marginBottom: 50,
-  },
-  logoImage: {
-    height: 120,
-    width: 120,
-  },
-  footerContainer: {
-    marginTop: "auto",
+  topBar: {
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderBottomWidth: AppStyles.border.borderWidth,
+    borderBottomColor: AppStyles.border.borderColor,
   },
 });

@@ -14,14 +14,6 @@ export const AppStyles = StyleSheet.create({
     marginTop: 15,
     paddingVertical: 15,
   },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: "#2e78b7",
-  },
   h1: {
     fontSize: 20,
     fontWeight: "800",
@@ -39,12 +31,13 @@ export const AppStyles = StyleSheet.create({
   },
   p1: {
     fontSize: 17,
-    fontWeight: "400",
+    fontWeight: "500",
     color: AppUtils.color.textBody,
+    letterSpacing: 1.2,
   },
   p2: {
     fontSize: 15,
-    fontWeight: "400",
+    fontWeight: "300",
     color: AppUtils.color.textBody,
   },
   p3: {
@@ -61,6 +54,7 @@ export const AppStyles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 5,
     borderStyle: "solid",
+    borderColor: AppUtils.color.grey,
   },
   inputBorder: {
     borderWidth: 0.5,
@@ -69,27 +63,13 @@ export const AppStyles = StyleSheet.create({
     borderRadius: 5,
     borderStyle: "solid",
   },
-  fileCard: {
-    borderWidth: 0.5,
-    borderRadius: 5,
-    borderStyle: "solid",
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    marginBottom: 30,
-  },
   cardShadow: {
     shadowColor: "#171717",
     shadowOffset: { width: 2, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
   },
-  bottomText: {
-    color: AppUtils.color.grey,
-    fontWeight: 300,
-    fontSize: 14,
-    textAlign: "center",
-  },
-  bottomTextLink: {
+  textLink: {
     color: AppUtils.color.primary,
     fontWeight: 500,
     marginHorizontal: 5,
