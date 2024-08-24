@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { AppStyles, AppUtils } from "@/utils";
-import { Wrapper } from "../(tabs)/comps";
 import { AppTextInput } from "@/comps";
+import { Wrapper } from "../comps";
 
 export default function HomeScreen() {
   return (

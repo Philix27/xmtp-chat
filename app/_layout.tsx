@@ -38,6 +38,31 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
         <Stack.Screen
+          name="index"
+          options={{
+            title: "Chat",
+            headerShown: false,
+            headerLargeTitle: false,
+            headerLargeTitleShadowVisible: false,
+            contentStyle: {
+              backgroundColor: AppUtils.color.bg,
+            },
+            headerBackButtonMenuEnabled: true,
+            statusBarColor: AppUtils.color.bg,
+            headerStyle: {
+              backgroundColor: AppUtils.color.bg,
+            },
+            headerTitleStyle: {
+              color: AppUtils.color.textBody,
+            },
+            autoHideHomeIndicator: true,
+            // headerLargeTitleStyle: {
+            //   fontSize: 10,
+            //   fontWeight: "200",
+            // },
+          }}
+        />
+        <Stack.Screen
           name="chat/index"
           options={{
             title: "Message",
