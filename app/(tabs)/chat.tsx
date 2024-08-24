@@ -1,9 +1,11 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { StyleSheet, Image, Platform, View, Text } from "react-native";
+import { View, Text } from "@/comps";
+import { StyleSheet, Image, Platform } from "react-native";
 
 export default function TabTwoScreen() {
   return (
     <View>
+      <View style={styles.topBar}></View>
       <Text>Chat</Text>
     </View>
   );
@@ -19,5 +21,9 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: "row",
     gap: 8,
+  },
+  topBar: {
+    backgroundColor: "orange",
+    height: 100
   },
 });
