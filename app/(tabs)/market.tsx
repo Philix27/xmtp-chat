@@ -4,7 +4,7 @@ import { AppStyles } from "@/utils";
 import { AppTextInput } from "@/comps";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function HomeScreen() {
+export default function IndexPage() {
   return (
     <Wrapper
       title="Chats"
