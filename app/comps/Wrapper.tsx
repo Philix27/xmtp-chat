@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Text, View } from "@/comps";
 import { AppStyles, AppUtils } from "@/utils";
+import { Ionicons } from "@expo/vector-icons";
 
 type IProps = {
   children: ReactNode;
@@ -16,6 +17,8 @@ type IProps = {
   title: string;
   rightChild?: ReactNode;
   hideTop?: boolean;
+  showBack?: boolean;
+  onBackPress?: VoidFunction;
 };
 
 export function Wrapper(props: IProps) {
@@ -25,7 +28,19 @@ export function Wrapper(props: IProps) {
         <View style={styles.viewContainer}>
           {props.hideTop || (
             <View style={styles.topBar}>
-              <Text style={AppStyles.h1}>{props.title}</Text>
+              <View style={{ display: "flex", flexDirection: "row" }}>
+                {props.showBack && (
+                  <Ionicons
+                    name="chevron-back"
+                    size={20}
+                    style={{ paddingRight: 10 }}
+                    color={AppUtils.color.textBody}
+                    onPress={props.onBackPress}
+                  />
+                )}
+
+                <Text style={AppStyles.h1}>{props.title}</Text>
+              </View>
               {props.rightChild}
             </View>
           )}
@@ -55,6 +70,7 @@ const styles = StyleSheet.create({
   topBar: {
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
     flexDirection: "row",
     paddingVertical: 15,
     paddingHorizontal: 20,

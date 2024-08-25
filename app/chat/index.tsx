@@ -3,6 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { AppStyles, AppUtils } from "@/utils";
 import { AppTextInput } from "@/comps";
 import { Wrapper } from "../comps";
+import { router } from "expo-router";
 
 export default function HomeScreen() {
   return (
@@ -16,6 +17,10 @@ export default function HomeScreen() {
           size={18}
         />
       }
+      showBack
+      onBackPress={() => {
+        router.back();
+      }}
     >
       <View style={styles.content}>
         {conversationsData.map((val, i) => (
